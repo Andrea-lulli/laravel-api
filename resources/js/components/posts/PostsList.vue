@@ -1,10 +1,11 @@
 <template>
-    <div>
+    <div class="d-flex justify-content-center m-5 " data-bs-theme="dark">
 
-        <LoaderComp v-if="isLoading" />
+        <div>
+            <LoaderComp v-if="isLoading" />
 
         <ul v-else-if="posts.length">
-            <li v-for="elem in posts" :key="elem.id">
+            <li v-for="elem in posts" :key="elem.id" class="border-top p-2">
                 {{ elem.title }}
                 <div v-if="elem.category">
                     {{ elem.category.name }}
@@ -18,6 +19,12 @@
 
 
         <Pagination @on-page-change="getPosts" :pagination="pagination" />
+
+
+        </div>
+
+
+
     </div>
 </template>
 
@@ -41,7 +48,7 @@ export default {
         this.getPosts();
     },
     methods: {
-        getPosts(page = 2) {
+        getPosts(page = 1) {
             this.isLoading = true
             axios.get('http://localhost:8000/api/posts?page=' + page)
                 .then((res) => {

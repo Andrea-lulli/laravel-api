@@ -1977,7 +1977,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPosts: function getPosts() {
       var _this = this;
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 2;
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       this.isLoading = true;
       axios.get('http://localhost:8000/api/posts?page=' + page).then(function (res) {
         console.log(res.data);
@@ -2182,9 +2182,15 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm.isLoading ? _c("LoaderComp") : _vm.posts.length ? _c("ul", _vm._l(_vm.posts, function (elem) {
+  return _c("div", {
+    staticClass: "d-flex justify-content-center m-5",
+    attrs: {
+      "data-bs-theme": "dark"
+    }
+  }, [_c("div", [_vm.isLoading ? _c("LoaderComp") : _vm.posts.length ? _c("ul", _vm._l(_vm.posts, function (elem) {
     return _c("li", {
-      key: elem.id
+      key: elem.id,
+      staticClass: "border-top p-2"
     }, [_vm._v("\n            " + _vm._s(elem.title) + "\n            "), elem.category ? _c("div", [_vm._v("\n                " + _vm._s(elem.category.name) + "\n            ")]) : _vm._e(), _vm._v(" "), _c("ul", _vm._l(elem.tags, function (tag, index) {
       return _c("li", {
         key: index
@@ -2197,7 +2203,7 @@ var render = function render() {
     on: {
       "on-page-change": _vm.getPosts
     }
-  })], 1);
+  })], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2219,7 +2225,9 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("WorkInProgress"), _vm._v(" "), _c("PostsList")], 1);
+  return _c("div", [_c("h2", {
+    staticClass: "text-center m-3"
+  }, [_vm._v("Lista dei Posts")]), _vm._v(" "), _c("WorkInProgress"), _vm._v(" "), _c("PostsList")], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
