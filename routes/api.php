@@ -23,4 +23,6 @@ Route::namespace ('Api')->prefix('/posts')->group(function () {
 
 Route::get('/', 'PostController@index');
 
+Route::get('/{id}', 'PostController@show');
+
     });

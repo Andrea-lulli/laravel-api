@@ -6,7 +6,10 @@
 
         <ul v-else-if="posts.length">
             <li v-for="elem in posts" :key="elem.id" class="border-top p-2">
-                {{ elem.title }}
+                <router-link :to="`/posts/${elem.id}`" >
+                    {{ elem.title }}
+                </router-link>
+
                 <div v-if="elem.category">
                     {{ elem.category.name }}
                 </div>

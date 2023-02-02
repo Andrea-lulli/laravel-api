@@ -1,18 +1,17 @@
 <template>
     <div>
-        <Header />
 
-        <router-view></router-view>
+        <h1> lista dei posts</h1>
+        <PostsList />
     </div>
 </template>
 
 <script>
-import Header from '../components/Header.vue'
-
+import PostsList from "../../../components/posts/PostsList.vue"
 export default {
-    name: 'App',
+    name: 'PostsIndex',
     components: {
-        Header
+        PostsList
     },
     data() {
         return {
@@ -22,3 +21,4 @@ export default {
     }
 }
 </script>
+
